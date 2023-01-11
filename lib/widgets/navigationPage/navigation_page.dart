@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:my_demo/widgets/navigationPage/navigation_page_controller_mixin.dart';
@@ -12,6 +11,8 @@ abstract class NavigationPageState<T extends NavigationPage> extends State<Navig
   RxBool _isLoading = false.obs;
 
   String? title;
+
+  Widget? leading;
 
   Color? backgroundColor;
 
@@ -36,6 +37,7 @@ abstract class NavigationPageState<T extends NavigationPage> extends State<Navig
 
   PreferredSizeWidget? _buildAppBarWidget() {
     return AppBar(
+      leading: leading,
       title: Text(title ?? ''),
       centerTitle: true,
     );
@@ -43,7 +45,6 @@ abstract class NavigationPageState<T extends NavigationPage> extends State<Navig
 
   Widget _buildBodyWidget() {
     return SizedBox(
-      height: double.maxFinite,
       child: Flex(
         direction: Axis.vertical,
         children: <Widget>[

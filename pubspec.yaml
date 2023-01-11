@@ -17,12 +17,11 @@ dependencies:
   ########################
   # Pub.dev dependencies #
   ########################
-  # 状态管理 https://pub.flutter-io.cn/packages/provider
-  provider: 6.0.3
-  # Get Router https://pub.flutter-io.cn/packages/get
   get: 4.6.5
   # flutter_spinkit make LoadingWidget https://pub.flutter-io.cn/packages/flutter_spinkit
   flutter_spinkit: 5.1.0
+  # flutter_swiper make LoadingWidget https://pub.flutter-io.cn/packages/flutter_swiper
+  flutter_swiper : 1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -33,7 +32,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-#  assets:
-#   - images/a_dot_burr.jpeg
-#   - images/a_dot_ham.jpeg
+  assets:
+   - assets/images/image1.jpg
+   - assets/images/image2.jpg
+   - assets/images/image3.jpg
+   - assets/images/image4.jpg
+   - assets/images/image5.jpg
 

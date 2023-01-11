@@ -4,10 +4,11 @@ import 'package:get/get.dart';
 import 'package:my_demo/widgets/navigationPage/navigation_page_controller_mixin.dart';
 
 abstract class NavigationPage extends StatefulWidget {
-  NavigationPage({Key? key, String? title}) : super(key: key);
+  const NavigationPage({Key? key, String? title}) : super(key: key);
 }
 
-abstract class NavigationPageState<T extends NavigationPage> extends State<NavigationPage> with NavigationPageControllerMixin {
+abstract class NavigationPageState<T extends NavigationPage>
+    extends State<NavigationPage> with NavigationPageControllerMixin {
   RxBool _isLoading = false.obs;
 
   String? title;
@@ -45,35 +46,33 @@ abstract class NavigationPageState<T extends NavigationPage> extends State<Navig
 
   Widget _buildBodyWidget() {
     return SizedBox(
-      child: Flex(
-        direction: Axis.vertical,
-        children: <Widget>[
-          Expanded(
-            child: Stack(
-              children: <Widget>[
-                buildContentWidget(context),
-                _isLoading.isTrue ? _buildLoadingWidget() : _buildEmptyWidget(),
-              ],
-            ),
+        child: Flex(
+      direction: Axis.vertical,
+      children: <Widget>[
+        Expanded(
+          child: Stack(
+            children: <Widget>[
+              buildContentWidget(context),
+              _isLoading.isTrue ? _buildLoadingWidget() : _buildEmptyWidget(),
+            ],
           ),
-        ],
-      )
-    );
+        ),
+      ],
+    ));
   }
 
-  Widget _buildBottomNavigationBar(context){
+  Widget _buildBottomNavigationBar(context) {
     return _buildEmptyWidget();
   }
 
   Widget buildContentWidget(context);
 
   Widget _buildLoadingWidget() => Container(
-    color: Colors.black54,
-    child: const Center(
-      child:
-      SpinKitFadingCircle(color: Colors.blue),
-    ),
-  );
+        color: Colors.black54,
+        child: const Center(
+          child: SpinKitFadingCircle(color: Colors.blue),
+        ),
+      );
 
   Widget _buildEmptyWidget() => const SizedBox(width: 0, height: 0);
 
@@ -81,5 +80,3 @@ abstract class NavigationPageState<T extends NavigationPage> extends State<Navig
 
   void showLoadingWidget() => _isLoading = RxBool(true);
 }
-
-

@@ -1,35 +1,35 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class RoundedWidget extends StatelessWidget {
-  RoundedWidget({Key? key, this.child}) : super(key: key);
+  RoundedWidget(
+      {Key? key,
+      this.child,
+      this.height = 150,
+      this.margin = const EdgeInsets.all(10)})
+      : super(key: key);
 
   Color color = Colors.grey;
 
-  double get _circularValue => (min(width, height) / 10);
+  double width = double.maxFinite;
 
-  double width = 200;
+  double height;
 
-  double height = 150;
-
-  double padding = 10;
+  final double _circularValue = 10;
 
   final Widget? child;
+
+  EdgeInsets margin;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: height,
-      padding: EdgeInsets.all(padding),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.all(Radius.circular(_circularValue))
-      ),
-      child: Center(
-        child: child,
-      ),
+      margin: margin,
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.circular(_circularValue)),
+      clipBehavior: Clip.hardEdge,
+      child: child,
     );
   }
 }

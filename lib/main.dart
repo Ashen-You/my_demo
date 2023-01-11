@@ -15,8 +15,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      home: Home(),
-      getPages: FwkNavigator().pages
-    );
-  }}
+    return GetMaterialApp(home: const Home(), getPages: FwkNavigator().pages);
+  }
+}

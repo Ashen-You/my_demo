@@ -31,7 +31,7 @@ abstract class NavigationPageState<T extends NavigationPage>
     return Scaffold(
       appBar: _buildAppBarWidget(),
       body: _buildBodyWidget(),
-      bottomNavigationBar: _buildBottomNavigationBar(context),
+      bottomNavigationBar: buildBottomNavigationBar(context),
       backgroundColor: backgroundColor,
     );
   }
@@ -61,9 +61,7 @@ abstract class NavigationPageState<T extends NavigationPage>
     ));
   }
 
-  Widget _buildBottomNavigationBar(context) {
-    return _buildEmptyWidget();
-  }
+  Widget buildBottomNavigationBar(context);
 
   Widget buildContentWidget(context);
 

@@ -1,13 +1,15 @@
 import 'package:get/get.dart';
 import 'package:my_demo/fwk/router/router.dart';
 import 'package:my_demo/modules/home/presentation/routers/home_router.dart';
-import 'package:my_demo/modules/user/presentation/routers/user_router.dart';
+import 'package:my_demo/modules/main_view/presentation/routers/main_view_router.dart';
+import 'package:my_demo/modules/user_view/presentation/routers/user_view_router.dart';
 
 class AppRouterConfig{
   static RouterConfig get config => RouterConfig(
       routerList: [
         HomeRouter(),
-        UserRouter(),
+        MainViewRouter(),
+        UserViewRouter()
       ],
   );
 }

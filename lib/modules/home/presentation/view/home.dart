@@ -1,10 +1,9 @@
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:my_demo/modules/home/presentation/controller/home_controller.dart';
-import 'package:my_demo/modules/user/presentation/routers/user_router.dart';
+import 'package:my_demo/modules/home/presentation/view_model/tab_view_model.dart';
+import 'package:my_demo/modules/main_view/presentation/view/main_view.dart';
+import 'package:my_demo/modules/user_view/presentation/view/user_view.dart';
 import 'package:my_demo/widgets/navigationPage/navigation_page.dart';
-import 'package:my_demo/widgets/rounded_widget.dart';
 
 class Home extends NavigationPage {
   const Home({Key? key}) : super(key: key);
@@ -13,31 +12,37 @@ class Home extends NavigationPage {
   NavigationPageState<Home> createState() => _HomeState();
 }
 
-class _HomeState extends NavigationPageState<Home> with HomeController {
+class _HomeState extends NavigationPageState<Home> with HomeController, SingleTickerProviderStateMixin {
   @override
   String? get title => 'Home';
 
   @override
+  void initState() {
+    tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
+  @override
   Widget buildContentWidget(context) {
-    return Column(
-      children: [
-        RoundedWidget(
-            height: 150,
-            child: Swiper(
-              itemBuilder: (context, index) => Image.asset(
-                "assets/images/image${index + 1}.jpg",
-                fit: BoxFit.fill,
-              ),
-              itemCount: 5,
-              pagination: const SwiperPagination(),
-              controller: controller,
-              autoplay: true,
-              indicatorLayout: PageIndicatorLayout.SCALE,
-            )),
-        ElevatedButton(
-            onPressed: () => Get.toNamed(UserRouter.userMainPage),
-            child: const Text('Go To User'))
-      ],
+    return TabBarView(
+      controller: tabController,
+      children: const [MainView(), UserView()],
+    );
+  }
+
+  @override
+  Widget buildBottomNavigationBar(context) {
+    return BottomNavigationBar(
+      items: tabs.map((tabVM) => _buildBarItem(tabVM)).toList(),
+      onTap: (index) => updateIndex(index),
+      currentIndex: tabController.index,
+    );
+  }
+
+  BottomNavigationBarItem _buildBarItem(TabViewModel tabVM) {
+    return BottomNavigationBarItem(
+      icon: tabVM.icon,
+      label: tabVM.title
     );
   }
 }

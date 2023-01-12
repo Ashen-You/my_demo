@@ -15,6 +15,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(home: const Home(), getPages: FwkNavigator().pages);
+    return GetMaterialApp(
+        home: const Home(),
+        theme: ThemeData(
+          colorScheme: const ColorScheme(
+              brightness: Brightness.light,
+              primary: Colors.black54,
+              onPrimary: Colors.white,
+              secondary: Colors.white54,
+              onSecondary: Colors.black,
+              error: Colors.red,
+              onError: Colors.yellow,
+              background: Colors.blue,
+              onBackground: Colors.white,
+              surface: Colors.green,
+              onSurface: Colors.black87
+          ),
+        ),
+        getPages: FwkNavigator().pages
+    );
   }
 }

@@ -29,14 +29,14 @@ abstract class NavigationPageState<T extends NavigationPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBarWidget(),
+      appBar: buildAppBarWidget(),
       body: _buildBodyWidget(),
       bottomNavigationBar: buildBottomNavigationBar(context),
       backgroundColor: backgroundColor,
     );
   }
 
-  PreferredSizeWidget? _buildAppBarWidget() {
+  PreferredSizeWidget? buildAppBarWidget() {
     return AppBar(
       leading: leading,
       title: Text(title ?? ''),

@@ -12,8 +12,6 @@ mixin HomeController on NavigationPageControllerMixin {
 
   int get tabCount => tabs.length;
 
-  int get nowIndex => tabController.index;
-
   updateIndex(index) {
     tabController.index = index;
     refreshPage();

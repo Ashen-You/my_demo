@@ -31,6 +31,7 @@ abstract class NavigationPageState<T extends NavigationPage>
     return Scaffold(
       appBar: buildAppBarWidget(),
       body: _buildBodyWidget(),
+      drawer: buildDrawer(context),
       bottomNavigationBar: buildBottomNavigationBar(context),
       backgroundColor: backgroundColor,
     );
@@ -45,7 +46,8 @@ abstract class NavigationPageState<T extends NavigationPage>
   }
 
   Widget _buildBodyWidget() {
-    return SizedBox(
+    return Container(
+      color: Colors.black54,
         child: Flex(
       direction: Axis.vertical,
       children: <Widget>[
@@ -60,6 +62,8 @@ abstract class NavigationPageState<T extends NavigationPage>
       ],
     ));
   }
+
+  Widget buildDrawer(BuildContext context) => _buildEmptyWidget();
 
   Widget buildBottomNavigationBar(context);
 

@@ -4,13 +4,15 @@ class RoundedWidget extends StatelessWidget {
   RoundedWidget(
       {Key? key,
       this.child,
-      this.height = 150,
-      this.margin = const EdgeInsets.all(10)})
+      this.color,
+      this.height = double.maxFinite,
+      this.width = double.maxFinite,
+      this.margin = const EdgeInsets.fromLTRB(10, 10, 10, 0)})
       : super(key: key);
 
-  Color color = Colors.grey;
+  Color? color;
 
-  double width = double.maxFinite;
+  double width;
 
   double height;
 
@@ -26,8 +28,8 @@ class RoundedWidget extends StatelessWidget {
       width: width,
       height: height,
       margin: margin,
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(_circularValue)),
+      decoration: BoxDecoration(
+          color: color, borderRadius: BorderRadius.circular(_circularValue)),
       clipBehavior: Clip.hardEdge,
       child: child,
     );

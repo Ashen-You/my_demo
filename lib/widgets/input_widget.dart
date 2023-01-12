@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:my_demo/widgets/rounded_widget.dart';
 
 class InputWidget extends StatefulWidget {
-  const InputWidget({Key? key}) : super(key: key);
+  InputWidget({Key? key, this.enabled = true, this.onTap}) : super(key: key);
+
+  bool enabled;
+
+  final GestureTapCallback? onTap;
 
   @override
   State<InputWidget> createState() => _InputWidgetState();
@@ -13,9 +17,14 @@ class _InputWidgetState extends State<InputWidget> {
   Widget build(BuildContext context) {
     return RoundedWidget(
       height: 40,
-      child: Container(
-        color: Colors.grey,
-        child: TextFormField(),
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: Container(
+          color: Colors.grey,
+          child: TextFormField(
+            enabled: widget.enabled,
+          ),
+        ),
       ),
     );
   }

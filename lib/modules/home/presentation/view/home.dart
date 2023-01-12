@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_demo/modules/home/presentation/controller/home_controller.dart';
+import 'package:my_demo/modules/home/presentation/view/home_drawer.dart';
 import 'package:my_demo/modules/home/presentation/view_model/tab_view_model.dart';
 import 'package:my_demo/modules/main_view/presentation/view/main_view.dart';
 import 'package:my_demo/modules/user_view/presentation/view/user_view.dart';
@@ -33,19 +35,30 @@ class _HomeState extends NavigationPageState<Home>
   }
 
   @override
+  Widget buildDrawer(BuildContext context) {
+    return const HomeDrawer();
+  }
+
+  @override
   PreferredSizeWidget? buildAppBarWidget() {
     return AppBar(
-      leading: const Icon(Icons.menu),
-      title: const InputWidget(),
+      title: tabController.index == 0 ? InputWidget(
+        enabled: false,
+        onTap: () => Fluttertoast.showToast(msg: 'navigator to page')
+      ) : Container()
     );
   }
 
   @override
   Widget buildBottomNavigationBar(context) {
     return BottomNavigationBar(
-        items: tabs.map((tabVM) => _buildBarItem(tabVM)).toList(),
-        onTap: (index) => updateIndex(index),
-        currentIndex: tabController.index);
+      items: tabs.map((tabVM) => _buildBarItem(tabVM)).toList(),
+      onTap: (index) => updateIndex(index),
+      currentIndex: tabController.index,
+      backgroundColor: Colors.black,
+      selectedItemColor: Colors.red,
+      unselectedItemColor: Colors.white,
+    );
   }
 
   BottomNavigationBarItem _buildBarItem(TabViewModel tabVM) {

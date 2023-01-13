@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:my_demo/fwk/font_style/font_style.dart';
 import 'package:my_demo/fwk/mixin/screen_mixin.dart';
 import 'package:my_demo/modules/main_view/presentation/controller/main_view_controller.dart';
 import 'package:my_demo/widgets/rounded_widget.dart';
@@ -84,14 +85,13 @@ class _MainViewState extends State<MainView>
           RoundedWidget(
               height: getLength(110),
               width: getLength(110),
-              margin: EdgeInsets.symmetric(horizontal: getLength(5)),
               child: Image.asset(
                 path,
                 fit: BoxFit.fill,
               )),
-          const Text(
+          Text(
             '我的最爱',
-            style: TextStyle(color: Colors.white),
+            style: FwkFontStyle().body1.regular.copyWith(color: Colors.white),
           )
         ],
       ),
@@ -108,7 +108,7 @@ class _MainViewState extends State<MainView>
               width: getLength(50),
               height: getLength(50),
               child: Image.asset(path, fit: BoxFit.fill)),
-          const Text('我的歌单', style: TextStyle(color: Colors.white))
+          Text('我的歌单', style: FwkFontStyle().body2.regular.copyWith(color: Colors.white))
         ],
       ),
     );

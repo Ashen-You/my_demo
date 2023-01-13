@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_demo/fwk/font_style/font_style.dart';
 import 'package:my_demo/fwk/mixin/screen_mixin.dart';
 
 class HomeDrawer extends StatelessWidget with ScreenMixin{
@@ -25,9 +26,9 @@ class HomeDrawer extends StatelessWidget with ScreenMixin{
                       child: Container()
                       ),
                     ),
-                  const Text(
+                  Text(
                     "Wendux",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: FwkFontStyle().title1.regular
                   )
                 ],
               ),

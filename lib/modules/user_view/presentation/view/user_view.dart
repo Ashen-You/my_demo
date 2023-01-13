@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_demo/fwk/font_style/font_style.dart';
 import 'package:my_demo/fwk/mixin/screen_mixin.dart';
 
 import 'package:my_demo/modules/user_view/presentation/controller/user_controller.dart';
@@ -33,7 +34,7 @@ class _UserState extends State<UserView> with UserViewController, ScreenMixin {
           child: Center(
               child: Text(
             'Ashen You',
-            style: TextStyle(fontSize: getFontSize(20), color: Colors.white),
+            style: FwkFontStyle().title1.bold.copyWith(color: Colors.white),
           )),
         ),
         Positioned(

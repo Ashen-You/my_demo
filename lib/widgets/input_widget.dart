@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_demo/fwk/mixin/screen_mixin.dart';
 import 'package:my_demo/widgets/rounded_widget.dart';
 
 class InputWidget extends StatefulWidget {
@@ -12,11 +13,11 @@ class InputWidget extends StatefulWidget {
   State<InputWidget> createState() => _InputWidgetState();
 }
 
-class _InputWidgetState extends State<InputWidget> {
+class _InputWidgetState extends State<InputWidget> with ScreenMixin{
   @override
   Widget build(BuildContext context) {
     return RoundedWidget(
-      height: 40,
+      height: getLength(40),
       child: GestureDetector(
         onTap: widget.onTap,
         child: Container(

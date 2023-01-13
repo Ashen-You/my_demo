@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:my_demo/fwk/mixin/screen_mixin.dart';
 
-class RoundedWidget extends StatelessWidget {
+class RoundedWidget extends StatelessWidget with ScreenMixin {
   RoundedWidget(
       {Key? key,
       this.child,
       this.color,
       this.height = double.maxFinite,
       this.width = double.maxFinite,
-      this.margin = const EdgeInsets.fromLTRB(10, 10, 10, 0)})
+      this.margin})
       : super(key: key);
 
   Color? color;
@@ -20,14 +21,14 @@ class RoundedWidget extends StatelessWidget {
 
   final Widget? child;
 
-  EdgeInsets margin;
+  EdgeInsets? margin;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: height,
-      margin: margin,
+      margin: margin ?? EdgeInsets.fromLTRB(getLength(10), getLength(10), getLength(10), 0),
       decoration: BoxDecoration(
           color: color, borderRadius: BorderRadius.circular(_circularValue)),
       clipBehavior: Clip.hardEdge,

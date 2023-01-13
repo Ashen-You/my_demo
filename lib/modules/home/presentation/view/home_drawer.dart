@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:my_demo/fwk/mixin/screen_mixin.dart';
 
-class HomeDrawer extends StatelessWidget {
+class HomeDrawer extends StatelessWidget with ScreenMixin{
   const HomeDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      width: getLength(300),
       child: MediaQuery.removePadding(
         context: context,
         //移除抽屉菜单顶部默认留白
@@ -14,11 +16,11 @@ class HomeDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 38.0),
+              padding: EdgeInsets.only(top: getLength(38)),
               child: Row(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    padding: EdgeInsets.symmetric(horizontal: getLength(16)),
                     child: ClipOval(
                       child: Container()
                       ),

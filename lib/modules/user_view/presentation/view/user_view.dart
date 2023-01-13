@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_demo/fwk/font_style/font_style.dart';
-import 'package:my_demo/fwk/mixin/screen_mixin.dart';
 
 import 'package:my_demo/modules/user_view/presentation/controller/user_controller.dart';
+import 'package:my_demo/widgets/base/base_state.dart';
 import 'package:my_demo/widgets/rounded_widget.dart';
 
 class UserView extends StatefulWidget {
   const UserView({Key? key}) : super(key: key);
 
   @override
-  State<UserView> createState() => _UserState();
+  BaseState<UserView> createState() => _UserState();
 }
 
-class _UserState extends State<UserView> with UserViewController, ScreenMixin {
+class _UserState extends BaseState<UserView> with UserViewController {
   var index = 0.obs;
   List colors = <Color>[Colors.red, Colors.blue, Colors.green];
 

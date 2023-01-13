@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_demo/fwk/mixin/screen_mixin.dart';
+import 'package:my_demo/widgets/base/base_stateless_widget.dart';
 
-class RoundedWidget extends StatelessWidget with ScreenMixin {
+class RoundedWidget extends BaseStatelessWidget {
   RoundedWidget(
       {Key? key,
       this.child,

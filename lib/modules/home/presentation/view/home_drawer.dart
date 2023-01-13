@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_demo/fwk/font_style/font_style.dart';
-import 'package:my_demo/fwk/mixin/screen_mixin.dart';
+import 'package:my_demo/widgets/base/base_stateless_widget.dart';
 
-class HomeDrawer extends StatelessWidget with ScreenMixin{
+class HomeDrawer extends BaseStatelessWidget {
   const HomeDrawer({Key? key}) : super(key: key);
 
   @override
@@ -22,14 +22,9 @@ class HomeDrawer extends StatelessWidget with ScreenMixin{
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: getLength(16)),
-                    child: ClipOval(
-                      child: Container()
-                      ),
-                    ),
-                  Text(
-                    "Wendux",
-                    style: FwkFontStyle().title1.regular
-                  )
+                    child: ClipOval(child: Container()),
+                  ),
+                  Text("Wendux", style: FwkFontStyle().title1.regular)
                 ],
               ),
             ),

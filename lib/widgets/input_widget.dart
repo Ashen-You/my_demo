@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_demo/fwk/mixin/screen_mixin.dart';
+import 'package:my_demo/widgets/base/base_state.dart';
 import 'package:my_demo/widgets/rounded_widget.dart';
 
 class InputWidget extends StatefulWidget {
@@ -13,7 +13,7 @@ class InputWidget extends StatefulWidget {
   State<InputWidget> createState() => _InputWidgetState();
 }
 
-class _InputWidgetState extends State<InputWidget> with ScreenMixin{
+class _InputWidgetState extends BaseState<InputWidget> {
   @override
   Widget build(BuildContext context) {
     return RoundedWidget(

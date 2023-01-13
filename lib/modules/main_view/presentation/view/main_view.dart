@@ -1,19 +1,19 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:my_demo/fwk/font_style/font_style.dart';
-import 'package:my_demo/fwk/mixin/screen_mixin.dart';
 import 'package:my_demo/modules/main_view/presentation/controller/main_view_controller.dart';
+import 'package:my_demo/widgets/base/base_state.dart';
 import 'package:my_demo/widgets/rounded_widget.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
 
   @override
-  State<MainView> createState() => _MainViewState();
+  BaseState<MainView> createState() => _MainViewState();
 }
 
-class _MainViewState extends State<MainView>
-    with MainViewController, ScreenMixin {
+class _MainViewState extends BaseState<MainView>
+    with MainViewController {
   @override
   Widget build(BuildContext context) {
     return Column(

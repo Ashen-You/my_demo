@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_demo/widgets/base/base_stateless_widget.dart';
 
-class NestedScrollWidget extends StatelessWidget {
+class NestedScrollWidget extends BaseStatelessWidget {
   NestedScrollWidget({Key? key, required this.body, required this.header}) : super(key: key);
 
   Widget body;

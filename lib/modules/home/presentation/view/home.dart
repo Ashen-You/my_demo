@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:my_demo/modules/bottom_bar_view/main_view/presentation/view/main_view.dart';
+import 'package:my_demo/modules/bottom_bar_view/user_view/presentation/view/user_view.dart';
 import 'package:my_demo/modules/home/presentation/controller/home_controller.dart';
 import 'package:my_demo/modules/home/presentation/view/home_drawer.dart';
 import 'package:my_demo/modules/home/presentation/view_model/tab_view_model.dart';
-import 'package:my_demo/modules/main_view/presentation/view/main_view.dart';
-import 'package:my_demo/modules/user_view/presentation/view/user_view.dart';
+import 'package:my_demo/widgets/base/navigationPage/navigation_page.dart';
 import 'package:my_demo/widgets/input_widget.dart';
-import 'package:my_demo/widgets/navigationPage/navigation_page.dart';
 
 class Home extends NavigationPage {
   const Home({Key? key}) : super(key: key);

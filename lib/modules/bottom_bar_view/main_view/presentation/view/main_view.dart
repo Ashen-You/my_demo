@@ -1,7 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:my_demo/fwk/font_style/font_style.dart';
-import 'package:my_demo/modules/main_view/presentation/controller/main_view_controller.dart';
+import 'package:my_demo/modules/bottom_bar_view/main_view/presentation/controller/main_view_controller.dart';
 import 'package:my_demo/widgets/base/base_state.dart';
 import 'package:my_demo/widgets/rounded_widget.dart';
 

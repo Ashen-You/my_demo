@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_demo/fwk/font_style/font_style.dart';
+import 'package:my_demo/modules/bottom_bar_view/user_view/presentation/controller/user_controller.dart';
 
-import 'package:my_demo/modules/user_view/presentation/controller/user_controller.dart';
 import 'package:my_demo/widgets/base/base_state.dart';
+import 'package:my_demo/widgets/nested_scroll_widget.dart';
 import 'package:my_demo/widgets/rounded_widget.dart';
 
 class UserView extends StatefulWidget {
@@ -19,8 +20,13 @@ class _UserState extends BaseState<UserView> with UserViewController {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-        children: [_buildUserWidget(), _buildCoverMenu(), _buildCoverList()]);
+    return NestedScrollWidget(
+      headerHeight: getLength(200),
+      body: _buildCoverList(),
+      header: _buildUserWidget(),
+      pinedWidgetHeight: getLength(150),
+      pinedWidget: _buildCoverMenu(),
+    );
   }
 
   Widget _buildUserWidget() {
@@ -78,14 +84,13 @@ class _UserState extends BaseState<UserView> with UserViewController {
       "assets/images/image5.jpg"
     ];
 
-    return Expanded(
-      child: RoundedWidget(
-        color: Colors.black54,
-        margin: EdgeInsets.all(getLength(10)),
-        child: ListView.builder(
-          itemBuilder: (context, index) => _buildListItem(covers[index]),
-          itemCount: covers.length,
-        ),
+    return RoundedWidget(
+      color: Colors.black54,
+      margin: EdgeInsets.all(getLength(10)),
+      child: ListView.builder(
+        itemBuilder: (context, index) => _buildListItem(covers[index]),
+        itemCount: covers.length,
+        shrinkWrap: true,
       ),
     );
   }

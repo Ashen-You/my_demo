@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:my_demo/config/router_config.dart';
 import 'package:my_demo/fwk/router/navigator/impl/navigator.dart';
@@ -9,12 +10,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  static const MethodChannel channel = MethodChannel('myChannel');
+
   MyApp({super.key}) {
     FwkNavigator().initConfig(AppRouterConfig.config);
   }
 
   @override
   Widget build(BuildContext context) {
+    channel.setMethodCallHandler((call) async {
+      if (call.method == 'myMethod') {
+        // 处理Native传递过来的数据，并返回结果
+        return 'Google';
+      }
+      return null;
+    });
     return GetMaterialApp(
         home: const Home(),
         theme: ThemeData(
@@ -29,10 +39,8 @@ class MyApp extends StatelessWidget {
               background: Colors.blue,
               onBackground: Colors.white,
               surface: Colors.green,
-              onSurface: Colors.black87
-          ),
+              onSurface: Colors.black87),
         ),
-        getPages: FwkNavigator().pages
-    );
+        getPages: FwkNavigator().pages);
   }
 }

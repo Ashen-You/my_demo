@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:my_demo/widgets/navigationPage/navigation_page_controller_mixin.dart';
+import 'package:my_demo/widgets/base/base_state.dart';
+import 'package:my_demo/widgets/base/navigationPage/navigation_page_controller_mixin.dart';
 
 abstract class NavigationPage extends StatefulWidget {
   const NavigationPage({Key? key, String? title}) : super(key: key);
 }
 
 abstract class NavigationPageState<T extends NavigationPage>
-    extends State<NavigationPage> with NavigationPageControllerMixin {
+    extends BaseState<NavigationPage> with NavigationPageControllerMixin {
   RxBool _isLoading = false.obs;
 
   String? title;

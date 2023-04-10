@@ -1,30 +1,29 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:my_demo/modules/main_view/presentation/controller/main_view_controller.dart';
+import 'package:my_demo/fwk/font_style/font_style.dart';
+import 'package:my_demo/modules/bottom_bar_view/main_view/presentation/controller/main_view_controller.dart';
+import 'package:my_demo/widgets/base/base_state.dart';
 import 'package:my_demo/widgets/rounded_widget.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
 
   @override
-  State<MainView> createState() => _MainViewState();
+  BaseState<MainView> createState() => _MainViewState();
 }
 
-class _MainViewState extends State<MainView> with MainViewController{
+class _MainViewState extends BaseState<MainView>
+    with MainViewController {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        _buildSwiper(),
-        _buildCoverMenu(),
-        _buildCoverList()
-      ],
+      children: [_buildSwiper(), _buildCoverMenu(), _buildCoverList()],
     );
   }
 
   Widget _buildSwiper() {
     return RoundedWidget(
-        height: 150,
+        height: getLength(150),
         child: Swiper(
           itemBuilder: (context, index) => Image.asset(
             "assets/images/image${index + 1}.jpg",
@@ -35,13 +34,12 @@ class _MainViewState extends State<MainView> with MainViewController{
           controller: swiperController,
           autoplay: true,
           indicatorLayout: PageIndicatorLayout.SCALE,
-        )
-    );
+        ));
   }
 
   Widget _buildCoverMenu() {
     return RoundedWidget(
-        height: 150,
+        height: getLength(150),
         color: Colors.black54,
         child: Wrap(
           alignment: WrapAlignment.center,
@@ -51,22 +49,27 @@ class _MainViewState extends State<MainView> with MainViewController{
             _buildCoverItem("assets/images/image2.jpg"),
             _buildCoverItem("assets/images/image3.jpg"),
           ],
-        )
-    );
+        ));
   }
 
   Widget _buildCoverList() {
-    List <String> covers = [
-      "assets/images/image1.jpg", "assets/images/image2.jpg", "assets/images/image3.jpg",
-      "assets/images/image4.jpg", "assets/images/image5.jpg", "assets/images/image1.jpg",
-      "assets/images/image2.jpg", "assets/images/image3.jpg", "assets/images/image4.jpg",
+    List<String> covers = [
+      "assets/images/image1.jpg",
+      "assets/images/image2.jpg",
+      "assets/images/image3.jpg",
+      "assets/images/image4.jpg",
+      "assets/images/image5.jpg",
+      "assets/images/image1.jpg",
+      "assets/images/image2.jpg",
+      "assets/images/image3.jpg",
+      "assets/images/image4.jpg",
       "assets/images/image5.jpg"
     ];
 
     return Expanded(
       child: RoundedWidget(
         color: Colors.black54,
-        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.all(getLength(10)),
         child: ListView.builder(
           itemBuilder: (context, index) => _buildListItem(covers[index]),
           itemCount: covers.length,
@@ -80,12 +83,16 @@ class _MainViewState extends State<MainView> with MainViewController{
       child: Column(
         children: [
           RoundedWidget(
-            height: 110,
-            width: 110,
-            margin: const EdgeInsets.symmetric(horizontal: 5),
-            child: Image.asset(path, fit: BoxFit.fill,)
-          ),
-          Text('我的最爱', style: TextStyle(color: Colors.white),)
+              height: getLength(110),
+              width: getLength(110),
+              child: Image.asset(
+                path,
+                fit: BoxFit.fill,
+              )),
+          Text(
+            '我的最爱',
+            style: FwkFontStyle().body1.regular.copyWith(color: Colors.white),
+          )
         ],
       ),
     );
@@ -93,14 +100,15 @@ class _MainViewState extends State<MainView> with MainViewController{
 
   Widget _buildListItem(String path) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      margin: EdgeInsets.symmetric(
+          horizontal: getLength(10), vertical: getLength(5)),
       child: Row(
         children: [
           RoundedWidget(
-              width: 50,
-              height: 50,
+              width: getLength(50),
+              height: getLength(50),
               child: Image.asset(path, fit: BoxFit.fill)),
-          const Text('我的歌单', style: TextStyle(color: Colors.white))
+          Text('我的歌单', style: FwkFontStyle().body2.regular.copyWith(color: Colors.white))
         ],
       ),
     );

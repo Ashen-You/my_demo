@@ -17,6 +17,7 @@ dependencies:
   ########################
   # Pub.dev dependencies #
   ########################
+  # get https://pub.flutter-io.cn/packages/get
   get: 4.6.5
   # flutter_spinkit make LoadingWidget https://pub.flutter-io.cn/packages/flutter_spinkit
   flutter_spinkit: 5.1.0
@@ -24,7 +25,9 @@ dependencies:
   card_swiper: 2.0.4
   # fluttertoast https://pub.flutter-io.cn/packages/fluttertoast
   fluttertoast: 8.1.2
-
+  # flutter_screenutil https://pub.flutter-io.cn/packages/flutter_screenutil
+  flutter_screenutil: 5.6.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_demo/modules/home/presentation/view_model/tab_view_model.dart';
-import 'package:my_demo/widgets/navigationPage/navigation_page_controller_mixin.dart';
+import 'package:my_demo/widgets/base/navigationPage/navigation_page_controller_mixin.dart';
 
 class HomeParam {
   HomeParam({required this.index, required this.name});

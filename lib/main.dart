@@ -18,6 +18,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return FwkApp().buildFwkApp(
+        context, home: const Home(),
+        pages: FwkNavigator().pages,
+        width: 428,
+        height: 926
+    );
     channel.setMethodCallHandler((call) async {
       if (call.method == 'myMethod') {
         // 处理Native传递过来的数据，并返回结果

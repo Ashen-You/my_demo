@@ -7,9 +7,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:my_demo/modules/home/presentation/controller/home_controller.dart';
-
-import 'package:my_demo/widgets/navigationPage/navigation_page_controller_mixin.dart';
-
+import 'package:my_demo/widgets/base/navigationPage/navigation_page_controller_mixin.dart';
 
 import 'fake/fake_tab_controller.dart';
 import 'package:my_demo/modules/home/presentation/controller/test_controller.dart';

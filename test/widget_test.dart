@@ -5,26 +5,52 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:my_demo/modules/home/presentation/controller/home_controller.dart';
 
-import 'package:my_demo/main.dart';
+import 'package:my_demo/widgets/navigationPage/navigation_page_controller_mixin.dart';
+
+
+import 'fake/fake_tab_controller.dart';
+import 'package:my_demo/modules/home/presentation/controller/test_controller.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('test test controller', () {
+    TestController testState = TestController();
+    testState.tabController = FakeTabController();
+    testState.initData(1, 'test');
+    expect(testState.param.index, 1);
+    expect(testState.param.name, 'test');
   });
+
+  test('test Mixin of HomeState', () {
+    FakeHomeState testState = FakeHomeState();
+    testState.initData(1, 'test');
+    expect(testState.param.index, 1);
+    expect(testState.param.name, 'test');
+  });
+}
+
+
+class FakeHomeState with NavigationPageControllerMixin, HomeController{
+  FakeHomeState() {
+    tabController = FakeTabController();
+  }
+
+  @override
+  void hideLoading() {
+    // TODO: implement hideLoading
+  }
+
+  @override
+  void refreshPage() {
+    // TODO: implement refreshPage
+  }
+
+  @override
+  void showLoading() {
+    // TODO: implement showLoading
+  }
+  
 }

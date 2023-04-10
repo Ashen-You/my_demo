@@ -12,11 +12,10 @@ class Home extends NavigationPage {
   const Home({Key? key}) : super(key: key);
 
   @override
-  NavigationPageState<Home> createState() => _HomeState();
+  NavigationPageState<Home> createState() => HomeState();
 }
 
-class _HomeState extends NavigationPageState<Home>
-    with HomeController, SingleTickerProviderStateMixin {
+class HomeState extends NavigationPageState<Home> with HomeController, SingleTickerProviderStateMixin {
   @override
   String? get title => 'Home';
 
